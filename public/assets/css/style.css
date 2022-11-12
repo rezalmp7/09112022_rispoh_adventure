@@ -1,0 +1,84 @@
+body {
+    font-family: 'Inria Serif', serif;
+}
+
+#home_page {
+    min-height: 100vh;
+    background-image: url('../img/background_home.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#home_page .navbar {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#home_page .navbar a {
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+    transition: 0.5s;
+}
+#home_page .navbar ul li a:hover {
+    letter-spacing: 3px;
+}
+#home_page h1, #home_page p {
+    font-weight: 400;
+    text-align: center;
+    color:white;
+}
+#home_page h1 {
+    text-shadow: -2px -2px 0px #000;
+    text-transform: uppercase;
+    font-size: 70px;
+}
+
+#basic_page .menu {
+    background-image: url('../img/background_home.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#basic_page h2 {
+    text-transform: uppercase;
+}
+#basic_page .menu {
+    background-color: rgb(243, 243, 243);
+}
+#basic_page .background-card-produk {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#basic_page .list_kategori a {
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+    font-style: none;
+}
+#basic_page .list_kategori .card {
+    transition: all 0.5s ease;
+}
+#basic_page .list_kategori .card:hover {
+    box-shadow: 2px 2px 5px rgb(163, 163, 163);
+}
+
+
+#admin_page .navbar {
+    background-color: #376FFF;
+}
+#admin_page .navbar ul li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: white;
+    transition: 0.5s;
+}
+#admin_page .background-card-produk {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#admin_page .navbar ul li a:hover {
+    letter-spacing: 3px;
+}
+.text-shadow {
+    text-shadow: 0px 0px 5px #000;
+}
