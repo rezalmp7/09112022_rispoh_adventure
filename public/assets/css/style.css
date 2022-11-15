@@ -1,10 +1,10 @@
 body {
     font-family: 'Inria Serif', serif;
+    font-size: 15px;
 }
 
 #home_page {
     min-height: 100vh;
-    background-image: url('../img/background_home.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -31,8 +31,14 @@ body {
     font-size: 70px;
 }
 
+.transaksi-button {
+    font-size: 10px;
+}
+.title-transaksi {
+    color: white;
+}
+
 #basic_page .menu {
-    background-image: url('../img/background_home.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -66,11 +72,32 @@ body {
 }
 #admin_page .navbar ul li a {
     font-family: 'Inter', sans-serif;
+    color: white;
     font-weight: 500;
     font-size: 12px;
-    color: white;
     transition: 0.5s;
 }
+
+#form-modal {
+    font-family: 'Inter', sans-serif;
+}
+
+.menu-admin-a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    transition: 0.5s;
+}
+.menu-admin-a:hover {
+    letter-spacing: 3px;
+}
+
+@media screen and (max-width: 990px) {
+    #admin_page .navbar ul li a {
+        color: black;
+    }
+}
+
 #admin_page .background-card-produk {
     background-size: cover;
     background-repeat: no-repeat;

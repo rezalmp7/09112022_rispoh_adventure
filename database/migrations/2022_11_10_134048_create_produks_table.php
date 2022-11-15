@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('nama')->nullable();
+            $table->integer('kategori')->nullable();
             $table->integer('harga')->nullable();
             $table->boolean('tersedia')->nullable();
             $table->timestamp('created_at')->useCurrent();

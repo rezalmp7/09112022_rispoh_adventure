@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('alamat_pelanggan')->nullable();
             $table->string('noHp_pelanggan')->nullable();
             $table->string('identitas')->nullable();
+            $table->integer('total_harga')->nullable();
             $table->enum('status', ['pesan', 'ambil', 'kembali'])->nullable();
             $table->enum('status_pembayaran', ['pending', 'lunas'])->nullable();
             $table->dateTime('tgl_lunas')->nullable();
