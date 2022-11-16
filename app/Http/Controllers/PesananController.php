@@ -39,10 +39,12 @@ class PesananController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function print($id)
+    public function print()
     {
-        $transaksi = Transaksi::find($id);
-        $pesanan = Pesanan::where('kd_transaksi', '=', $transaksi->kd_transaksi)->get();
+        $transaksi = Transaksi::orderBy('created_at', 'DESC')->get();
+        foreach ($transaksi as $a) {
+            $pesanan[$a->id] = Pesanan::where('kd_transaksi', '=', $a->kd_transaksi)->get();
+        }
 
         return view('admin/pesanan_print', compact('transaksi', 'pesanan'));
     }

@@ -5,109 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        table {
-            max-width: 100%;
-            max-height: 100%;
-        }
-        body {
-            padding: 5px;
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-        table th,
-        table td {
-            padding: .625em;
-        text-align: center;
-        }
-        table .kop:before {
-            content: ': ';
-        }
-        .left {
-            text-align: left;
-        }
-        table #caption {
-        font-size: 1.5em;
-        margin: .5em 0 .75em;
-        }
-        table.border {
-        width: 100%;
-        border-collapse: collapse
-        }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-        table.border tbody th, table.border tbody td {
-        border: thin solid #000;
-        padding: 2px
-        }
-        .ttd td, .ttd th {
-            padding-bottom: 4em;
-        }
-    </style>
 </head>
 <body>
     <div id="printable" class="container" style="padding: 20px">
-        <table border="0" cellpadding="0" cellspacing="0" width="485" class="border" style="overflow-x:auto;">
+        <h2 class="text-center py-4">Laporan Pesanan</h2>
+        <table class="dataTables table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <td colspan="6" width="485" id="caption">RISPOH ADVENTURE</td>
-                </tr>
-                <tr>
-                    <td colspan="2">Nama Pelanggan</td>
-                    <td class="left kop">{{ $transaksi->nama_pelanggan }}</td>
-                    <td></td>
-                    <td>Alamat</td>
-                    <td class="left kop">{{ $transaksi->alamat_pelanggan }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">No Hp</td>
-                    <td class="left kop">{{ $transaksi->noHp_pelanggan }}</td>
-                    <td></td>
-                    <td>Tanggal</td>
-                    <td class="left kop">{{ date('d/m/Y', strtotime($transaksi->tgl_pesan)) }}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <th>Kode</th>
+                    <th>Pelanggan</th>
+                    <th>Tanggal</th>
+                    <th>Produk</th>
+                    <th>Pembayaran</th>
+                    <th>Lunas</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($transaksi as $item)
                 <tr>
-                    <th>No</th>
-                    <th>Produk</th>
-                    <th>Jumlah</th>
-                    <th>Harga</th>
-                    <th>Lama</th>
-                    <th colspan="2">Jumlah Harga</th>
-                </tr>
-                @php
-                    $total_harga = 0;
-                @endphp
-                @foreach ($pesanan as $item => $a)
-                @php
-                    $jumlah_harga = $a->qty*$a->harga*$a->lama_sewa;
-                    $total_harga += $jumlah_harga;
-                @endphp
-                <tr>
-                    <td align="right">{{ $item+1 }}</td>
-                    <td>{{ $a->nama_produk }}</td>
-                    <td align="right">{{ $a->qty }} pcs</td>
-                    <td>Rp {{ $a->harga }}</td>
-                    <td>{{ $a->lama_sewa }} Hari</td>
-                    <td colspan="2">Rp {{ number_format($jumlah_harga) }}</td>
+                    <td>{{ $item->kd_transaksi }}</td>
+                    <td>
+                        <div class="m-0 p-0">{{ $item->nama_pelanggan }}</div>
+                        <small class="m-0 p-0">{{ $item->noHp_pelanggan }}</small>
+                        <hr class="p-0 m-0">
+                        <small class="m-0 p-0">{{ $item->alamat_pelanggan }}</small>
+                    </td>
+                    <td>
+                        {{ date('d-m-Y', strtotime($item->tgl_pesan)) }}
+                    </td>
+                    <td>
+                        @foreach ($pesanan[$item->id] as $a)
+                            <div class="m-0 p-0">{{ $a->nama_produk }}</div>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($pesanan[$item->id] as $a)
+                            <div class="m-0 p-0">{{ $a->qty }} Pcs</div>
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($pesanan[$item->id] as $a)
+                            <div class="m-0 p-0">{{ $a->lama_sewa }} Hari</div>
+                        @endforeach
+                    </td>
                 </tr>
                 @endforeach
-                <tr>
-                    <th colspan="5"> TOTAL</th>
-                    <td>Rp {{ number_format($total_harga) }}</td>
-                </tr>
             </tbody>
         </table>
     </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
     <script>
         window.print();
     </script>

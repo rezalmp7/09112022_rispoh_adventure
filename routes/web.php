@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/produk/toggleTersedia/{id}', [ManagementProdukController::class, 'toggleTersedia'])->name('toggleTersediaProduk');
 
     Route::get('/admin/pesanan', [PesananController::class, 'index'])->name('adminPesanan');
-    Route::get('/admin/pesanan/print/{id}', [PesananController::class, 'print'])->name('adminPesananPrint');
+    Route::get('/admin/pesanan/print', [PesananController::class, 'print'])->name('adminPesananPrint');
     Route::get('/admin/pesanan/show/{id}', [PesananController::class, 'show'])->name('adminPesananShow');
 
     Route::get('/admin/user', [ManagementUserController::class, 'index'])->name('adminUser');

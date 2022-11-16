@@ -6,6 +6,9 @@
                 <h2 class="text-center"><b>Pesanan</b></h2>
             </div>
             <div class="col-12 m-0 p-0">
+                <div class="col-12 m-0 p-0 text-end py-5">
+                    <a href="{{ url('/') }}/admin/pesanan/print" target="_blank" class="btn btn-sm btn-primary">Print</a>
+                </div>
                 <div class="table-responsive col-12 m-0 p-0">
                     <table class="dataTables table table-striped" style="width:100%">
                         <thead>
@@ -49,7 +52,6 @@
                                 </td>
                                 <td>
                                     <a href="{{ url('/') }}/admin/pesanan/show/{{ $item->id }}" class="btn btn-sm btn-primary">View</a>
-                                    <a href="{{ url('/') }}/admin/pesanan/print/{{ $item->id }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
                                 </td>
                             </tr>
                             @endforeach
