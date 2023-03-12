@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TentangController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KeranjangController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\TerimaKasihController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
+Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 Route::get('/produk/{id}', [ProdukController::class, 'index'])->name('produk');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/actionLogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
