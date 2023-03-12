@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/pesanan', [PesananController::class, 'index'])->name('adminPesanan');
     Route::get('/admin/pesanan/print', [PesananController::class, 'print'])->name('adminPesananPrint');
+    Route::get('/admin/pesanan/nota/{id}', [PesananController::class, 'nota'])->name('adminPesananNota');
     Route::get('/admin/pesanan/show/{id}', [PesananController::class, 'show'])->name('adminPesananShow');
 
     Route::get('/admin/user', [ManagementUserController::class, 'index'])->name('adminUser');

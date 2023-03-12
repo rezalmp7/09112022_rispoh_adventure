@@ -52,6 +52,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ url('/') }}/admin/pesanan/show/{{ $item->id }}" class="btn btn-sm btn-primary">View</a>
+                                    <a href="{{ url('/') }}/admin/pesanan/nota/{{ $item->id }}" target="_blank" class="btn btn-sm btn-primary">Print</a>
                                 </td>
                             </tr>
                             @endforeach

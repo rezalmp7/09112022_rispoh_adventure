@@ -28,9 +28,12 @@ class PesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function nota($id)
     {
-        //
+        $transaksi = Transaksi::find($id);
+        $pesanan = Pesanan::where('kd_transaksi', '=', $transaksi->kd_transaksi)->get();
+
+        return view('admin/pesanan_nota', compact('transaksi', 'pesanan'));
     }
 
     /**
