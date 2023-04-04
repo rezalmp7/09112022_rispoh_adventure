@@ -13,26 +13,21 @@
                                 <th colspan="6" class="col-12 m-0 p-4 text-center fs-4" id="caption">RISPOH ADVENTURE</th>
                             </tr>
                             <tr>
-                                <td colspan="2">Nama Pelanggan</td>
+                                <td colspan="2"><b>Nama Pelanggan</b></td>
                                 <td class="left kop">{{ $transaksi->nama_pelanggan }}</td>
                                 <td></td>
-                                <td>Alamat</td>
+                                <td><b>Alamat</b></td>
                                 <td class="left kop">{{ $transaksi->alamat_pelanggan }}</td>
                             </tr>
                             <tr>
-                                <td colspan="2">No Hp</td>
+                                <td colspan="2"><b>No Hp</b></td>
                                 <td class="left kop">{{ $transaksi->noHp_pelanggan }}</td>
                                 <td></td>
-                                <td>Tanggal</td>
+                                <td><b>Tanggal</b></td>
                                 <td class="left kop">{{ date('d/m/Y', strtotime($transaksi->tgl_pesan)) }}</td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td colspan="6"><a target="_blank" href="{{ url('/') }}/images/{{ $transaksi->identitas }}"><img height="300" src="{{ url('/') }}/images/{{ $transaksi->identitas }}" alt="{{$transaksi->nama_pelanggan}}"></a></td>
                             </tr>
                         <tbody>
                     </table>

@@ -13,7 +13,7 @@
                             <div class="col-12 m-0 px-1">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" onclick="toggleTersedia(this, {{ $a->id }})" @if($a->tersedia == 1) checked @endif id="toggleTersedia-{{ $a->id }}" name="tersedia" type="checkbox" value="tersedia">
-                                    <label class="form-check-label" for="toggleTersedia-{{ $a->id }}">Tersedia</label>
+                                    <label class="form-check-label" for="toggleTersedia-{{ $a->id }}">Tersedia  {{ $a->stok }}</label>
                                 </div>
                             </div>
                             <div class="col-12 m-0 p-0 height-1-1 background-card-produk"
@@ -79,6 +79,10 @@
                                 </label>
                             </div>
                             <div class="mb-3">
+                                <label for="formFile" class="form-label" id='label-upload-gambar-produk'>Stok</label>
+                                <input type="number" id="stokProduk" class="form-control form-control-sm" name="stok" placeholder="Stok Produk">
+                            </div>
+                            <div class="mb-3">
                                 <label for="formFile" class="form-label" id='label-upload-gambar-produk'>Gambar Produk</label>
                                 <input class="form-control form-control-sm" id="gambarProduk" name="gambar" type="file" id="formFile">
                             </div>
@@ -140,6 +144,7 @@
 
                 document.getElementById('namaProduk').value = "";
                 document.getElementById('namaGambarLama').value = "";
+                document.getElementById('stokProduk').value = "";
                 document.getElementById('label-upload-gambar-produk').innerHTML = "Upload Gambar";
                 document.getElementById('gambarProduk').value = "";
                 
@@ -161,13 +166,14 @@
                         document.getElementById('title-form-modal').innerHTML ="Edit Data Produk";
                         document.getElementById('namaProduk').value = value.nama;
                         document.getElementById('hargaProduk').value = value.harga;
+                        document.getElementById('stokProduk').value = value.stok;
                         document.getElementById('namaGambarLama').value = value.image;
 
                         let kategoriProduk = document.getElementById('kategoriProduk').options;
 
                         for (var i = 0; i < kategoriProduk.length; i++) {
                             if(kategoriProduk[i].value == value.kategori) {
-                                $('#kategoriProduk').val(i).trigger('change');
+                                $('#kategoriProduk').val(kategoriProduk[i].value).trigger('change');
                             }
                         }
 

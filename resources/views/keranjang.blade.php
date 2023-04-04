@@ -39,7 +39,7 @@
                                         <select class="form-select" aria-label="Default select example" name="lama[]">
                                             <option value="1" @if($a['lama'] == 1) selected @endif>24 Jam / 1 Hari</option>
                                             <option value="2" @if($a['lama'] == 2) selected @endif>48 Jam / 2 Hari</option>
-                                            <option value="3" @if($a['lama'] == 3) selected @endif>96 Jam / 3 Hari</option>
+                                            <option value="3" @if($a['lama'] == 3) selected @endif>72 Jam / 3 Hari</option>
                                         </select>
                                     </td>
                                     <td>

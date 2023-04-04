@@ -21,6 +21,7 @@
                             <div class="card-body p-0">
                                 <p class="card-text text-center p-0 m-0"><b>{{ $item->nama }}</b></p>
                                 <small style="font-size: 10px" class="col-12 m-0 p-0 text-center d-block">Rp {{ number_format($item->harga) }}/hari</small>
+                                <small style="font-size: 10px" class="col-12 m-0 p-0 text-center d-block">Stok {{ $item->stok }} Pcs</small>
                             </div>
                             <div class="card-footer bg-transparent text-center">
                                 <a href="{{ url('/') }}/keranjang/store/{{ $item->id }}" class="btn btn-sm px-3 btn-success" style="font-size: 10px">Pesan</a>

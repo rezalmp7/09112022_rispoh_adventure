@@ -13,6 +13,7 @@ class Produk extends Model
         'image',
         'nama',
         'harga',
-        'tersedia'
+        'tersedia',
+        'stok'
     ];
 }

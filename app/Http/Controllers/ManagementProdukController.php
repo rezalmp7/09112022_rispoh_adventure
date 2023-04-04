@@ -74,6 +74,7 @@ class ManagementProdukController extends Controller
             'harga' => $request->harga,
             'kategori' => $request->kategoriProduk,
             'tersedia' => $tersedia,
+            'stok' => $request->stok
         ]);
 
         return redirect(url('/admin/produk'));
@@ -149,12 +150,13 @@ class ManagementProdukController extends Controller
             $tersedia = 0;
         }
         
-        Produk::find($id)->update([
+        Produk::where(array("id" => $id))->update([
             'image' => $imageName,
             'nama' => $request->nama,
             'harga' => $request->harga,
             'kategori' => $request->kategoriProduk,
             'tersedia' => $tersedia,
+            'stok' => $request->stok
         ]);
 
         return redirect(url('/admin/produk'));
